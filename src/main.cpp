@@ -23,8 +23,6 @@ MOD_EXPORT_FUNC void late_load() {
 
     Logger.info("Installing hooks...");
 
-    INSTALL_HOOK(Logger, Results);
-
     Logger.info("Installed all hooks!");
 }
 #pragma endregion
