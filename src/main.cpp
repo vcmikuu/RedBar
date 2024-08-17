@@ -2,35 +2,29 @@
 
 #include "scotland2/shared/modloader.h"
 
-static modloader::ModInfo modInfo{MOD_ID, VERSION, 0};
-// Stores the ID and version of our mod, and is sent to
-// the modloader upon startup
+#pragma region Mod setup
+/// @brief Called at the early stages of game loading
+/// @param info
+/// @return
+MOD_EXPORT_FUNC void setup(CModInfo& info) {
+    info.id = MOD_ID;
+    info.version = VERSION;
 
-// Loads the config from disk using our modInfo, then returns it for use
-// other config tools such as config-utils don't use this config, so it can be
-// removed if those are in use
-Configuration &getConfig() {
-  static Configuration config(modInfo);
-  return config;
+    Logger.info("Completed setup!");
 }
 
-// Called at the early stages of game loading
-MOD_EXTERN_FUNC void setup(CModInfo *info) noexcept {
-  *info = modInfo.to_c();
+/// @brief Called later on in the game loading - a good time to install function hooks
+/// @return
+MOD_EXPORT_FUNC void late_load() {
+    il2cpp_functions::Init();
 
-  getConfig().Load();
+    getModConfig().Init(modInfo);
+    // BSML::Init();
 
-  // File logging
-  Paper::Logger::RegisterFileContextId(PaperLogger.tag);
+    Logger.info("Installing hooks...");
 
-  PaperLogger.info("Completed setup!");
+    INSTALL_HOOK(Logger, Results);
+
+    Logger.info("Installed all hooks!");
 }
-
-// Called later on in the game loading - a good time to install function hooks
-MOD_EXTERN_FUNC void late_load() noexcept {
-  il2cpp_functions::Init();
-
-  PaperLogger.info("Installing hooks...");
-
-  PaperLogger.info("Installed all hooks!");
-}
+#pragma endregion
