@@ -3,7 +3,7 @@
 
 #include "GlobalNamespace/GameEnergyUIPanel.hpp"
 #include "GlobalNamespace/GameEnergyCounter.hpp"
-#include "GlobalNamespace/IDifficultyBeatmap.hpp"
+#include "GlobalNamespace/DifficultyBeatmap.hpp"
 #include "GlobalNamespace/OverrideEnvironmentSettings.hpp"
 #include "GlobalNamespace/ColorScheme.hpp"
 #include "GlobalNamespace/GameplayModifiers.hpp"
