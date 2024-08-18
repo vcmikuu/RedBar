@@ -3,7 +3,7 @@
 
 #include "GlobalNamespace/GameEnergyUIPanel.hpp"
 #include "GlobalNamespace/GameEnergyCounter.hpp"
-// #include "GlobalNamespace/IDifficultyBeatmap.hpp"
+#include "GlobalNamespace/BeatmapLevel.hpp"
 #include "GlobalNamespace/OverrideEnvironmentSettings.hpp"
 #include "GlobalNamespace/ColorScheme.hpp"
 #include "GlobalNamespace/GameplayModifiers.hpp"
@@ -11,7 +11,7 @@
 #include "GlobalNamespace/PracticeSettings.hpp"
 #include "GlobalNamespace/StandardLevelScenesTransitionSetupDataSO.hpp"
 #include "GlobalNamespace/MultiplayerLevelScenesTransitionSetupDataSO.hpp"
-// #include "GlobalNamespace/IPreviewBeatmapLevel.hpp"
+#include "GlobalNamespace/BeatmapKey.hpp"
 #include "GlobalNamespace/BeatmapDifficulty.hpp"
 #include "GlobalNamespace/BeatmapCharacteristicSO.hpp"
 
